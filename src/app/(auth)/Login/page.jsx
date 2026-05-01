@@ -2,15 +2,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-
-
 const Login = () => {
 const { register, handleSubmit } = useForm();
-
     const onSubmit = (data) => {
         console.log(data);
     };
-
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
         <form
