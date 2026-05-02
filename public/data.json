@@ -1,0 +1,382 @@
+[
+    {
+      "id": 1,
+      "title": "Complete Web Development Bootcamp",
+      "instructor": "John Doe",
+      "duration": "20 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "description": "Learn full-stack web development from scratch.",
+      "fullDescription": "This comprehensive bootcamp takes you from an absolute beginner to a capable full-stack developer. You will build responsive websites and dynamic applications, understanding the core principles of how the web works behind the scenes.",
+      "curriculum": [
+        "Module 1: HTML5 & Semantic Web",
+        "Module 2: Modern CSS & Flexbox",
+        "Module 3: JavaScript Fundamentals",
+        "Module 4: DOM Manipulation",
+        "Module 5: Introduction to Backend APIs"
+      ],
+      "image": "https://i.postimg.cc/example-course1.png",
+      "category": "Development"
+    },
+    {
+      "id": 2,
+      "title": "UI/UX Design Masterclass",
+      "instructor": "Jane Smith",
+      "duration": "15 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Master Figma, wireframing, and modern design principles.",
+      "fullDescription": "Bridge the gap between design and development. This course focuses on creating intuitive user experiences and high-fidelity prototypes using Figma. You will learn color theory, typography, and how to hand off designs to developers.",
+      "curriculum": [
+        "Module 1: Design Thinking Process",
+        "Module 2: Wireframing & User Flows",
+        "Module 3: Mastering Figma Tools",
+        "Module 4: Prototyping & Animation",
+        "Module 5: Building a Design System"
+      ],
+      "image": "https://i.postimg.cc/example-course2.png",
+      "category": "Design"
+    },
+    {
+      "id": 3,
+      "title": "Python for Data Science",
+      "instructor": "Alan Turing",
+      "duration": "25 hours",
+      "rating": 4.7,
+      "level": "Advanced",
+      "description": "Deep dive into data analysis, Pandas, and predictive modeling.",
+      "fullDescription": "Harness the power of Python to analyze massive datasets. You will learn how to clean data, visualize trends, and build your first machine learning models to predict future outcomes based on historical data.",
+      "curriculum": [
+        "Module 1: Python Crash Course",
+        "Module 2: Data Analysis with Pandas",
+        "Module 3: Data Visualization with Matplotlib",
+        "Module 4: Introduction to Machine Learning",
+        "Module 5: Capstone Project: Predicting Trends"
+      ],
+      "image": "https://i.postimg.cc/example-course3.png",
+      "category": "Data Science"
+    },
+    {
+      "id": 4,
+      "title": "Digital Marketing 101: SEO & Social Media",
+      "instructor": "Sarah Connor",
+      "duration": "12 hours",
+      "rating": 4.5,
+      "level": "Beginner",
+      "description": "Grow your audience with proven strategies in SEO and social marketing.",
+      "fullDescription": "Learn how to drive organic traffic to your websites and build a loyal audience. This course covers everything from keyword research and technical SEO to running profitable ad campaigns on modern social platforms.",
+      "curriculum": [
+        "Module 1: The Marketing Funnel",
+        "Module 2: Keyword Research Strategies",
+        "Module 3: On-Page and Off-Page SEO",
+        "Module 4: Content Creation for Social Media",
+        "Module 5: Analyzing Google Analytics"
+      ],
+      "image": "https://i.postimg.cc/example-course4.png",
+      "category": "Marketing"
+    },
+    {
+      "id": 5,
+      "title": "Advanced React & Next.js Patterns",
+      "instructor": "Mark Zuckerberg",
+      "duration": "30 hours",
+      "rating": 4.8,
+      "level": "Advanced",
+      "description": "Build scalable web applications using React and Next.js.",
+      "fullDescription": "Take your frontend skills to the next level. We dive deep into React hooks, context API, and Next.js App Router. You will learn server-side rendering, static site generation, and how to build blazing fast, SEO-friendly applications.",
+      "curriculum": [
+        "Module 1: Advanced React Hooks",
+        "Module 2: State Management Context vs Redux",
+        "Module 3: Next.js Routing and Layouts",
+        "Module 4: Server Components & Data Fetching",
+        "Module 5: Deploying to Vercel"
+      ],
+      "image": "https://i.postimg.cc/example-course5.png",
+      "category": "Development"
+    },
+    {
+      "id": 6,
+      "title": "Machine Learning A-Z",
+      "instructor": "Andrew Ng",
+      "duration": "40 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Learn algorithms, neural networks, and AI fundamentals hands-on.",
+      "fullDescription": "Demystify Artificial Intelligence. This course breaks down complex algorithms into easily understandable concepts. You will train models to recognize images, understand text, and make automated decisions.",
+      "curriculum": [
+        "Module 1: Supervised vs Unsupervised Learning",
+        "Module 2: Linear and Logistic Regression",
+        "Module 3: Decision Trees and Random Forests",
+        "Module 4: Building Artificial Neural Networks",
+        "Module 5: AI Ethics and Deployment"
+      ],
+      "image": "https://i.postimg.cc/example-course6.png",
+      "category": "Data Science"
+    },
+    {
+      "id": 7,
+      "title": "Graphic Design Bootcamp",
+      "instructor": "Paula Scher",
+      "duration": "18 hours",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Learn Adobe Photoshop, Illustrator, and InDesign to create stunning graphics.",
+      "fullDescription": "Explore the industry-standard tools for visual design. You will learn vector illustration, photo manipulation, and layout design, culminating in a professional portfolio of logos, posters, and digital assets.",
+      "curriculum": [
+        "Module 1: Illustrator Basics & Vector Art",
+        "Module 2: Photoshop: Layers and Masks",
+        "Module 3: Typography and Layout",
+        "Module 4: Brand Identity Design",
+        "Module 5: Preparing Files for Print and Web"
+      ],
+      "image": "https://i.postimg.cc/example-course7.png",
+      "category": "Design"
+    },
+    {
+      "id": 8,
+      "title": "iOS App Development with Swift",
+      "instructor": "Craig Federighi",
+      "duration": "35 hours",
+      "rating": 4.7,
+      "level": "Intermediate",
+      "description": "Create native Apple applications using Swift and Xcode.",
+      "fullDescription": "Build beautiful, native applications for the iPhone and iPad. You will master the Swift programming language, work with SwiftUI to build responsive interfaces, and learn how to publish your app to the App Store.",
+      "curriculum": [
+        "Module 1: Introduction to Xcode and Swift",
+        "Module 2: Building UIs with SwiftUI",
+        "Module 3: State Management in iOS",
+        "Module 4: Fetching API Data via URLSession",
+        "Module 5: App Store Submission Process"
+      ],
+      "image": "https://i.postimg.cc/example-course8.png",
+      "category": "Development"
+    },
+    {
+      "id": 9,
+      "title": "Tailwind CSS Mastery",
+      "instructor": "Adam Wathan",
+      "duration": "10 hours",
+      "rating": 4.4,
+      "level": "Beginner",
+      "description": "Rapidly build modern websites without ever leaving your HTML.",
+      "fullDescription": "Stop writing custom CSS files. Learn how to use utility classes to build completely custom designs faster than ever. We cover responsive design, dark mode, and extracting reusable components.",
+      "curriculum": [
+        "Module 1: Setting up Tailwind in Next.js",
+        "Module 2: Utility-First Fundamentals",
+        "Module 3: Responsive and Hover States",
+        "Module 4: Customizing the Theme Configuration",
+        "Module 5: Building a Complete Dashboard UI"
+      ],
+      "image": "https://i.postimg.cc/example-course9.png",
+      "category": "Development"
+    },
+    {
+      "id": 10,
+      "title": "Financial Modeling for Startups",
+      "instructor": "Warren Buffett",
+      "duration": "14 hours",
+      "rating": 4.8,
+      "level": "Intermediate",
+      "description": "Learn how to build financial projections and calculate burn rate.",
+      "fullDescription": "Understand the numbers behind the business. You will learn how to read balance sheets, forecast revenue, and model different growth scenarios to secure funding from investors.",
+      "curriculum": [
+        "Module 1: Accounting Basics for Founders",
+        "Module 2: Building the 3-Statement Model",
+        "Module 3: Forecasting Revenue and Expenses",
+        "Module 4: Calculating Runway and Burn Rate",
+        "Module 5: Preparing for Pitch Meetings"
+      ],
+      "image": "https://i.postimg.cc/example-course10.png",
+      "category": "Business"
+    },
+    {
+      "id": 11,
+      "title": "Ethical Hacking Fundamentals",
+      "instructor": "Kevin Mitnick",
+      "duration": "22 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Learn penetration testing and how to protect digital assets.",
+      "fullDescription": "Think like a hacker to secure your systems. You will learn how to identify vulnerabilities in web applications, secure networks against attacks, and implement proper authentication methods like Argon2 and Bcrypt.",
+      "curriculum": [
+        "Module 1: Introduction to Cyber Security",
+        "Module 2: Network Scanning and Enumeration",
+        "Module 3: Web Application Vulnerabilities (OWASP)",
+        "Module 4: Cryptography and Password Hashing",
+        "Module 5: Writing Security Reports"
+      ],
+      "image": "https://i.postimg.cc/example-course11.png",
+      "category": "IT & Software"
+    },
+    {
+      "id": 12,
+      "title": "Photography Masterclass",
+      "instructor": "Annie Leibovitz",
+      "duration": "16 hours",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Understand lighting and composition to take breathtaking photos.",
+      "fullDescription": "Master your camera in manual mode. We cover the exposure triangle (aperture, shutter speed, ISO), natural lighting techniques, and the fundamentals of editing raw photos in Adobe Lightroom.",
+      "curriculum": [
+        "Module 1: Mastering the Exposure Triangle",
+        "Module 2: Composition and Framing Rules",
+        "Module 3: Working with Natural Light",
+        "Module 4: Portrait vs Landscape Photography",
+        "Module 5: Post-Processing in Lightroom"
+      ],
+      "image": "https://i.postimg.cc/example-course12.png",
+      "category": "Photography"
+    },
+    {
+      "id": 13,
+      "title": "Relational Databases with PostgreSQL",
+      "instructor": "Edgar Codd",
+      "duration": "8 hours",
+      "rating": 4.3,
+      "level": "Beginner",
+      "description": "Upgrade your data skills by mastering SQL and database architecture.",
+      "fullDescription": "Learn how to store, retrieve, and manage data efficiently. You will write complex SQL queries, design relational schemas, and understand the importance of indexing for fast application performance.",
+      "curriculum": [
+        "Module 1: Intro to Relational Databases",
+        "Module 2: Writing Basic SQL Queries",
+        "Module 3: Joins, Grouping, and Aggregations",
+        "Module 4: Database Normalization",
+        "Module 5: Connecting DBs to Node.js"
+      ],
+      "image": "https://i.postimg.cc/example-course13.png",
+      "category": "IT & Software"
+    },
+    {
+      "id": 14,
+      "title": "Modern JavaScript Deep Dive",
+      "instructor": "Brendan Eich",
+      "duration": "20 hours",
+      "rating": 4.8,
+      "level": "Intermediate",
+      "description": "Master ES6+, closures, async/await, and the event loop.",
+      "fullDescription": "Go beyond the basics. This course explains how JavaScript truly works under the hood. You will master asynchronous programming, prototype delegation, and functional programming concepts.",
+      "curriculum": [
+        "Module 1: Execution Context and the Call Stack",
+        "Module 2: Closures and Scope Chains",
+        "Module 3: Promises and Async/Await",
+        "Module 4: The 'this' Keyword Explained",
+        "Module 5: Modern ES Modules"
+      ],
+      "image": "https://i.postimg.cc/example-course14.png",
+      "category": "Development"
+    },
+    {
+      "id": 15,
+      "title": "Social Media Marketing Pro",
+      "instructor": "Gary Vaynerchuk",
+      "duration": "11 hours",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Create viral content and manage online communities.",
+      "fullDescription": "Build a powerful personal or corporate brand online. Learn platform-specific strategies for TikTok, Instagram, and LinkedIn, including video editing tips and community management workflows.",
+      "curriculum": [
+        "Module 1: Defining Your Brand Voice",
+        "Module 2: Short-Form Video Strategies",
+        "Module 3: Community Engagement Tactics",
+        "Module 4: Influencer Partnerships",
+        "Module 5: Social Media Analytics"
+      ],
+      "image": "https://i.postimg.cc/example-course15.png",
+      "category": "Marketing"
+    },
+    {
+      "id": 16,
+      "title": "Intro to Cloud Computing with AWS",
+      "instructor": "Jeff Bezos",
+      "duration": "18 hours",
+      "rating": 4.5,
+      "level": "Beginner",
+      "description": "Deploy your first scalable applications to the cloud.",
+      "fullDescription": "Move your applications from local servers to the global cloud. You will learn how to configure EC2 instances, manage S3 storage buckets, and set up load balancers for high availability.",
+      "curriculum": [
+        "Module 1: Cloud Computing Basics",
+        "Module 2: Identity and Access Management (IAM)",
+        "Module 3: Compute Services (EC2 & Lambda)",
+        "Module 4: Storage Solutions (S3 & RDS)",
+        "Module 5: Deploying a Full-Stack App"
+      ],
+      "image": "https://i.postimg.cc/example-course16.png",
+      "category": "IT & Software"
+    },
+    {
+      "id": 17,
+      "title": "3D Animation with Blender",
+      "instructor": "Ton Roosendaal",
+      "duration": "28 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Create stunning 3D models, textures, and cinematic animations.",
+      "fullDescription": "Bring your imagination to life. This hands-on course teaches you poly-modeling, UV mapping, rigging, and rendering high-quality 3D animations using the open-source Blender software.",
+      "curriculum": [
+        "Module 1: Navigating the 3D Viewport",
+        "Module 2: Modeling Props and Environments",
+        "Module 3: Lighting and Materials",
+        "Module 4: Rigging Characters",
+        "Module 5: Rendering and Compositing"
+      ],
+      "image": "https://i.postimg.cc/example-course17.png",
+      "category": "Design"
+    },
+    {
+      "id": 18,
+      "title": "Computer Vision Basics",
+      "instructor": "Fei-Fei Li",
+      "duration": "45 hours",
+      "rating": 4.8,
+      "level": "Advanced",
+      "description": "Learn object detection and image classification with YOLO.",
+      "fullDescription": "Train computers to see and understand the world. You will work with datasets to train models using YOLOv8, classifying objects like vehicles, pedestrians, and traffic signs in real-time video feeds.",
+      "curriculum": [
+        "Module 1: Introduction to OpenCV",
+        "Module 2: Image Processing Techniques",
+        "Module 3: Understanding Convolutional Neural Networks",
+        "Module 4: Training YOLOv8 Models",
+        "Module 5: Real-Time Object Detection Projects"
+      ],
+      "image": "https://i.postimg.cc/example-course18.png",
+      "category": "Data Science"
+    },
+    {
+      "id": 19,
+      "title": "Agile Project Management",
+      "instructor": "Ken Schwaber",
+      "duration": "9 hours",
+      "rating": 4.4,
+      "level": "Beginner",
+      "description": "Master Scrum methodologies to lead development teams efficiently.",
+      "fullDescription": "Deliver software faster and more reliably. You will learn the roles, events, and artifacts of the Scrum framework, how to write user stories, and how to facilitate sprint planning and retrospectives.",
+      "curriculum": [
+        "Module 1: Agile Manifesto and Principles",
+        "Module 2: Scrum Roles (PO, SM, Developers)",
+        "Module 3: Backlog Grooming and User Stories",
+        "Module 4: Sprint Planning and Execution",
+        "Module 5: Sprint Reviews and Retrospectives"
+      ],
+      "image": "https://i.postimg.cc/example-course19.png",
+      "category": "Business"
+    },
+    {
+      "id": 20,
+      "title": "Full-Stack Web Architect",
+      "instructor": "Guillermo Rauch",
+      "duration": "24 hours",
+      "rating": 4.9,
+      "level": "Advanced",
+      "description": "Design and build enterprise-grade web applications.",
+      "fullDescription": "Learn how to structure massive web applications. We cover system design, choosing the right databases, implementing secure authentication, and optimizing frontend performance for millions of users.",
+      "curriculum": [
+        "Module 1: High-Level System Design",
+        "Module 2: API Design (REST vs GraphQL)",
+        "Module 3: Authentication and Authorization flows",
+        "Module 4: Performance Optimization and Caching",
+        "Module 5: CI/CD Pipelines and Testing"
+      ],
+      "image": "https://i.postimg.cc/example-course20.png",
+      "category": "Development"
+    }
+  ]
