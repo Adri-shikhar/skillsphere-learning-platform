@@ -7,10 +7,10 @@ const Mylink = ({ href, children }) => {
     const path = usePathname();
     const active = path === href;
     return (
-        <div className={`border-b-2 pb-1 transition-colors duration-200 ${active ? 'border-orange-500' : 'border-transparent'}`}>
+        <div className={`border-b-2 pb-1 px-3 transition-colors duration-200 ${active ? 'border-purple-600' : 'border-transparent'}`}>
             <Link
                 href={href}
-                className={`text-lg font-medium hover:text-orange-500 transition-colors duration-200 ${active ? 'text-orange-500' : 'text-gray-600'}`}
+                className={`text-sm font-semibold hover:text-purple-600 transition-colors duration-200 ${active ? 'text-purple-600' : 'text-gray-600'}`}
             >
                 {children}
             </Link>

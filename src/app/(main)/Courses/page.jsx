@@ -1,27 +1,28 @@
+/* eslint-disable @next/next/no-img-element -- course thumbnails use plain img */
 import React from 'react';
+import Link from 'next/link';
+import path from 'path';
+import { readFile } from 'fs/promises';
+import { MdStar, MdAccessTime, MdSchool } from 'react-icons/md';
 
-const Courses = async () => {
+export const metadata = {
+    title: 'All Courses | SkillSphere',
+    description: 'Browse our full library of expert-led courses and start learning today.',
+};
 
-    const api=await fetch(`http://localhost:3000/data.json`);
-    const courses=await api.json();
-    console.log(courses);
+const CoursesPage = async () => {
+    const apiUrl = 'http://localhost:3000/data.json';
+    const response = await fetch(apiUrl);
+    const Courses = await response.json();
+    console.log(Courses);
+ 
 
-    
     return (
-        <div className='container mx-auto'>
+        <div>
             <h1>Courses</h1>
-            <p>This is the Courses page.</p>
-            {courses.map((course)=>(
-                <div key={course.id}>
-                    <h2>{course.title}</h2>
-                    <p>{course.description}</p>
-                    <p>{course.instructor}</p>
-                    <p>{course.duration}</p>
-                    <p>{course.rating}</p>
-                </div>
-            ))}
         </div>
+       
     );
 };
 
-export default Courses;
+export default CoursesPage;
