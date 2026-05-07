@@ -1,9 +1,14 @@
+'use client';
+
 import Link from "next/link";
 import React from "react";
 import Mylink from "./Mylink";
 import { MdSchool, MdMenu } from "react-icons/md";
 
+import { useSession } from '@/lib/auth-client';
+
 const Navbar = () => {
+  const { data: session } = useSession();
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -27,18 +32,30 @@ const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/Login"
-            className="px-4 py-2 text-sm font-semibold text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
-          >
-            Login
-          </Link>
-          <Link
-            href="/Registration"
-            className="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-purple-200"
-          >
-            Register
-          </Link>
+          {session?.user ? (
+            <Link
+              href="/Profile"
+              className="px-4 py-2 text-sm font-semibold text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+            >
+              Profile
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/Login"
+                className="px-4 py-2 text-sm font-semibold text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+              >
+                Login
+              </Link>
+              <Link
+                href="/Registration"
+                className="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-purple-200"
+              >
+                Register
+              </Link>
+            </>
+          )}
+
         </div>
 
         {/* Mobile hamburger */}

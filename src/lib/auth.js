@@ -14,15 +14,15 @@ export function getAuth() {
   }
 
   const client = new MongoClient(uri);
-  const db = client.db();
+  const db = client.db("SkillSphere");
 
   authSingleton = betterAuth({
     database: mongodbAdapter(db, {
-      emailAndPassword: {
-        enabled: true,
-      },
       client,
     }),
+    emailAndPassword: {
+      enabled: true,
+    },
   });
 
   return authSingleton;

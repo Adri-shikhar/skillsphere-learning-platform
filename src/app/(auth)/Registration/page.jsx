@@ -14,9 +14,9 @@ const { register, handleSubmit } = useForm();
         picture: formData.picture,
       });
       if (error) {
-        console.error(error);
+        alert(error.message || "Registration failed");
       } else {
-        console.log(data);
+        alert("Registration successful");
       }
     };
     return (

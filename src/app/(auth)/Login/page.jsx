@@ -1,11 +1,21 @@
 "use client";
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import { authClient, useSession } from '@/lib/auth-client';
 const Login = () => {
 const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
+const { data: session, isPending } = useSession();
+      const onSubmit = async (formData) => {
+      const { data, error } = await authClient.signIn.email({
+        email: formData.email, // required
+        password: formData.password, // required
+        callbackURL: "/",
+      });
+    if (error) {
+      alert("Login failed");
+    } else {
+      alert("Login successful");
+    }
     };
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
@@ -14,6 +24,9 @@ const { register, handleSubmit } = useForm();
           className="bg-white p-8 rounded shadow-md w-full max-w-md space-y-6 "
         >
           <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+          <p className="text-center text-sm text-gray-600">
+           
+          </p>
           <div>
             <label className="block mb-1 font-medium">Email</label>
             <input
