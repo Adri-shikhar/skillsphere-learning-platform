@@ -1,11 +1,23 @@
 "use client";
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import { authClient } from '@/lib/auth-client';
 const Registration = () => {
 const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
+
+
+    const onSubmit =async (formData) => {
+      const{data,error} = await authClient.signUp.email({
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+        picture: formData.picture,
+      });
+      if (error) {
+        console.error(error);
+      } else {
         console.log(data);
+      }
     };
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
@@ -19,7 +31,7 @@ const { register, handleSubmit } = useForm();
             <input
               type="text"
               name="name"
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Your Name"
               {...register("name")}
             />
@@ -29,7 +41,7 @@ const { register, handleSubmit } = useForm();
             <input
               type="email"
               name="email"
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="you@email.com"
               {...register("email")}
             />
@@ -39,7 +51,7 @@ const { register, handleSubmit } = useForm();
             <input
               type="text"
               name="picture"
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Profile Picture URL"
               {...register("picture")}
             />
@@ -49,20 +61,20 @@ const { register, handleSubmit } = useForm();
             <input
               type="password"
               name="password"
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Password"
               {...register("password")}
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
+            className="w-full bg-purple-600 text-white py-2 rounded font-semibold hover:bg-purple-700 transition-colors"
           >
             Register
           </button>
           <p className="text-center text-sm mt-2">
             Already have an account?{" "}
-            <a href="/Login" className="text-orange-500 hover:underline">
+            <a href="/Login" className="text-purple-500 hover:underline">
               Login
             </a>
           </p>

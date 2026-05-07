@@ -29,20 +29,20 @@ const { register, handleSubmit } = useForm();
             <input
               type="password"
               name="password"
-              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Password"
               {...register("password")}
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
+            className="w-full bg-purple-600 text-white py-2 rounded font-semibold hover:bg-purple-700 transition-colors"
           >
             Login
           </button>
           <p className="text-center text-sm mt-2">
             Donnot have an account?{" "}
-            <a href="/Registration" className="text-orange-500 hover:underline">
+            <a href="/Registration" className="text-purple-500 hover:underline">
               Register
             </a>
           </p>

@@ -1,17 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Marquee from "./Components/MarqueeData/MarqueeData";
 import MarqueeData from "./Components/MarqueeData/MarqueeData";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Skillsphere | Learn Anything",
@@ -22,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en" data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">      
         {children}
