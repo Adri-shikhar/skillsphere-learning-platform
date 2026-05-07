@@ -15,16 +15,26 @@ export function getAuth() {
 
   const client = new MongoClient(uri);
   const db = client.db("SkillSphere");
+  const trustedOrigins = [
+    "http://localhost:3000",
+    "https://skillsphere-learning-platform.vercel.app",
+  ];
+
+  if (process.env.BETTER_AUTH_URL) {
+    trustedOrigins.push(process.env.BETTER_AUTH_URL);
+  }
+
+  if (process.env.VERCEL_URL) {
+    trustedOrigins.push(`https://${process.env.VERCEL_URL}`);
+  }
+
+  const uniqueTrustedOrigins = [...new Set(trustedOrigins)];
 
   authSingleton = betterAuth({
     database: mongodbAdapter(db, {
       client,
     }),
-    trustedOrigins: [
-      "http://localhost:3000",
-      "https://skillsphere-learning-platform.vercel.app",
-      "https://skillsphere-learning-platform-*.vercel.app",
-    ],
+    trustedOrigins: uniqueTrustedOrigins,
     emailAndPassword: {
       enabled: true,
     },
