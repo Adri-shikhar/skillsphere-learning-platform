@@ -6,9 +6,8 @@ const CourseDetailsPage = async ({ params }) => {
     const id = Number(idParam);
     if (!Number.isFinite(id)) notFound();
 
-    const api = `https://skillsphere-learning-platform-git-main-obito4.vercel.app/data.json`;
-    const res = await fetch(api);
-    const courses = await res.json();
+    const api = 'https://skillsphere-learning-platform.vercel.app/data.json';
+    const courses = await fetch(api).then((res) => res.json());
     const course = courses.find((c) => c.id === id);
     if (!course) notFound();
 

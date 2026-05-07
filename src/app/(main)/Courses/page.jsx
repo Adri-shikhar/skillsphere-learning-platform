@@ -11,9 +11,8 @@ export const metadata = {
 };
 
 const CoursesPage = async () => {
-   const api=`https://skillsphere-learning-platform-git-main-obito4.vercel.app/data.json`;
-   const res=await fetch(api);
-   const courses=await res.json();
+   const api = 'https://skillsphere-learning-platform.vercel.app/data.json';
+   const courses = await fetch(api).then((res) => res.json());
 
     return (
         <main className="min-h-screen bg-gray-50">
