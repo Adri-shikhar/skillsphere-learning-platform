@@ -11,6 +11,7 @@ const { register, handleSubmit } = useForm();
         password: formData.password, // required
         callbackURL: "/",
       });
+      
     if (error) {
       alert("Login failed");
     } else {
