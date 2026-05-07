@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { authClient, useSession } from '@/lib/auth-client';
+import { FcGoogle } from 'react-icons/fc';
+import { authClient } from '@/lib/auth-client';
 const Login = () => {
 const { register, handleSubmit } = useForm();
-const { data: session, isPending } = useSession();
       const onSubmit = async (formData) => {
       const { data, error } = await authClient.signIn.email({
         email: formData.email, // required
@@ -17,6 +17,17 @@ const { data: session, isPending } = useSession();
       alert("Login successful");
     }
     };
+
+    const handleGoogleSignIn = async () => {
+      const { error } = await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+      if (error) {
+        alert(error.message || "Google login failed");
+      }
+    };
+
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
         <form
@@ -24,9 +35,6 @@ const { data: session, isPending } = useSession();
           className="bg-white p-8 rounded shadow-md w-full max-w-md space-y-6 "
         >
           <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
-          <p className="text-center text-sm text-gray-600">
-           
-          </p>
           <div>
             <label className="block mb-1 font-medium">Email</label>
             <input
@@ -52,6 +60,15 @@ const { data: session, isPending } = useSession();
             className="w-full bg-purple-600 text-white py-2 rounded font-semibold hover:bg-purple-700 transition-colors"
           >
             Login
+          </button>
+          <p className="text-center text-xs text-gray-400">or</p>
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded font-semibold hover:bg-gray-50 transition-colors"
+          >
+            <FcGoogle className="text-xl" />
+            Log in with Google
           </button>
           <p className="text-center text-sm mt-2">
             Donnot have an account?{" "}

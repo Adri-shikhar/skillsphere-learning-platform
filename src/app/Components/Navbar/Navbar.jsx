@@ -1,14 +1,27 @@
 'use client';
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Mylink from "./Mylink";
 import { MdSchool, MdMenu } from "react-icons/md";
 
-import { useSession } from '@/lib/auth-client';
+import { signOut, useSession } from '@/lib/auth-client';
 
 const Navbar = () => {
+  const router = useRouter();
   const { data: session } = useSession();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    if (isLoggingOut) return;
+    setIsLoggingOut(true);
+    await signOut();
+    router.replace("/Login");
+    router.refresh();
+    setIsLoggingOut(false);
+  };
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -33,12 +46,22 @@ const Navbar = () => {
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center gap-3">
           {session?.user ? (
+            <>
             <Link
               href="/Profile"
               className="px-4 py-2 text-sm font-semibold text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
             >
               Profile
             </Link>
+            <button
+              type="button"
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="px-4 py-2 text-sm font-semibold text-white bg-red-600 border-2 border-red-600 rounded-lg hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+            >
+              {isLoggingOut ? "Logging out..." : "Logout"}
+            </button> 
+            </>
           ) : (
             <>
               <Link
