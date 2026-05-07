@@ -20,6 +20,11 @@ export function getAuth() {
     database: mongodbAdapter(db, {
       client,
     }),
+    trustedOrigins: [
+      "http://localhost:3000",
+      "https://skillsphere-learning-platform.vercel.app",
+      "https://skillsphere-learning-platform-*.vercel.app",
+    ],
     emailAndPassword: {
       enabled: true,
     },
