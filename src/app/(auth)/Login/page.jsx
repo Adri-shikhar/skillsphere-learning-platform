@@ -3,19 +3,21 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 const Login = () => {
 const { register, handleSubmit } = useForm();
+const router = useRouter();
       const onSubmit = async (formData) => {
-      const { data, error } = await authClient.signIn.email({
+      const { error } = await authClient.signIn.email({
         email: formData.email, // required
         password: formData.password, // required
         callbackURL: "/",
       });
       
     if (error) {
-      alert("Login failed");
+      alert(error.message || "Login failed");
     } else {
-      alert("Login successful");
+      router.push("/");
     }
     };
 
@@ -43,7 +45,7 @@ const { register, handleSubmit } = useForm();
               name="email"
               className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
               placeholder="you@email.com"
-              {...register("email")}
+              {...register("email", { required: true })}
             />
           </div>
           <div>
@@ -53,7 +55,7 @@ const { register, handleSubmit } = useForm();
               name="password"
               className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Password"
-              {...register("password")}
+              {...register("password", { required: true })}
             />
           </div>
           <button

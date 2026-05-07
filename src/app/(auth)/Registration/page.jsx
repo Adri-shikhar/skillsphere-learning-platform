@@ -2,12 +2,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 const Registration = () => {
 const { register, handleSubmit } = useForm();
+const router = useRouter();
 
 
     const onSubmit =async (formData) => {
-      const{data,error} = await authClient.signUp.email({
+      const{error} = await authClient.signUp.email({
         email: formData.email,
         password: formData.password,
         name: formData.name,
@@ -16,7 +18,7 @@ const { register, handleSubmit } = useForm();
       if (error) {
         alert(error.message || "Registration failed");
       } else {
-        alert("Registration successful");
+        router.push("/Login");
       }
     };
     return (
@@ -33,7 +35,7 @@ const { register, handleSubmit } = useForm();
               name="name"
               className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Your Name"
-              {...register("name")}
+              {...register("name", { required: true })}
             />
           </div>
           <div>
@@ -43,7 +45,7 @@ const { register, handleSubmit } = useForm();
               name="email"
               className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="you@email.com"
-              {...register("email")}
+              {...register("email", { required: true })}
             />
           </div>
           <div>
@@ -63,7 +65,7 @@ const { register, handleSubmit } = useForm();
               name="password"
               className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Password"
-              {...register("password")}
+              {...register("password", { required: true, minLength: 8 })}
             />
           </div>
           <button

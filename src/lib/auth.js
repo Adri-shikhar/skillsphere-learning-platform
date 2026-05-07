@@ -29,8 +29,17 @@ export function getAuth() {
   }
 
   const uniqueTrustedOrigins = [...new Set(trustedOrigins)];
+  const fallbackAuthURL =
+    process.env.BETTER_AUTH_URL ||
+    "https://skillsphere-learning-platform.vercel.app";
 
   authSingleton = betterAuth({
+    baseURL: {
+      allowedHosts: ["localhost:3000", "*.vercel.app"],
+      fallback: fallbackAuthURL,
+      protocol: "auto",
+    },
+    trustedProxyHeaders: true,
     database: mongodbAdapter(db, {
       client,
     }),
