@@ -39,7 +39,9 @@ export function getAuth() {
       fallback: fallbackAuthURL,
       protocol: "auto",
     },
-    trustedProxyHeaders: true,
+    advanced: {
+      trustedProxyHeaders: true,
+    },
     database: mongodbAdapter(db, {
       client,
     }),
