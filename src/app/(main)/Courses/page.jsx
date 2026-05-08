@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element -- course thumbnails use plain img */
-import React from 'react';
-import Link from 'next/link';
-import { MdStar, MdAccessTime, MdSchool } from 'react-icons/md';
+import React from "react";
+import Link from "next/link";
+import { MdStar, MdAccessTime, MdSchool } from "react-icons/md";
+import CoursesHero from "../../Components/CoursesHero/CoursesHero";
 
 export const dynamic = 'force-dynamic';
 
@@ -17,10 +18,7 @@ const CoursesPage = async () => {
     return (
         <main className="min-h-screen bg-gray-50">
             <div className="container mx-auto px-4 py-10 pb-16">
-                <header className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900">All courses</h1>
-                    <p className="mt-1 text-gray-600">{courses.length} courses available</p>
-                </header>
+                <CoursesHero count={courses.length} />
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {courses.map((course) => {

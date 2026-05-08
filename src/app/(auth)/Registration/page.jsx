@@ -1,29 +1,34 @@
 "use client";
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { authClient } from '@/lib/auth-client';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+
 const Registration = () => {
-const { register, handleSubmit } = useForm();
-const router = useRouter();
+  const { register, handleSubmit } = useForm();
+  const router = useRouter();
 
-
-    const onSubmit =async (formData) => {
+  const onSubmit = async (formData) => {
+    try {
       const { error } = await authClient.signUp.email({
         email: formData.email,
         password: formData.password,
         name: formData.name,
-        // Better Auth expects `image`, not `picture` (OAuth maps picture → image).
         ...(formData.picture?.trim()
           ? { image: formData.picture.trim() }
           : {}),
       });
       if (error) {
-        alert(error.message || "Registration failed");
-      } else {
-        router.push("/Login");
+        toast.error(error.message || "Registration failed");
+        return;
       }
-    };
+      toast.success("Account created. Please sign in.");
+      router.push("/");
+    } catch (e) {
+      toast.error(e?.message || "Registration failed. Try again.");
+    }
+  };
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">
         <form

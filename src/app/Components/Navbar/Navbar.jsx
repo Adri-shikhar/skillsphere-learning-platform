@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Mylink from "./Mylink";
 import { MdSchool, MdMenu } from "react-icons/md";
 
+import { toast } from "sonner";
 import { signOut, useSession } from '@/lib/auth-client';
 
 const Navbar = () => {
@@ -16,10 +17,16 @@ const Navbar = () => {
   const handleLogout = async () => {
     if (isLoggingOut) return;
     setIsLoggingOut(true);
-    await signOut();
-    router.replace("/Login");
-    router.refresh();
-    setIsLoggingOut(false);
+    try {
+      await signOut();
+      toast.success("Logged out successfully");
+      router.replace("/Login");
+      router.refresh();
+    } catch (e) {
+      toast.error(e?.message || "Logout failed. Try again.");
+    } finally {
+      setIsLoggingOut(false);
+    }
   };
 
   return (
@@ -40,19 +47,14 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-1">
           <Mylink href="/">Home</Mylink>
           <Mylink href="/Courses">Courses</Mylink>
-          <Mylink href="/Wishlist">Wishlist</Mylink>
+          <Mylink href="/Profile">My Profile</Mylink>
         </nav>
 
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center gap-3">
           {session?.user ? (
             <>
-            <Link
-              href="/Profile"
-              className="px-4 py-2 text-sm font-semibold text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
-            >
-              Profile
-            </Link>
+           
             <button
               type="button"
               onClick={handleLogout}

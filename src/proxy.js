@@ -1,18 +1,27 @@
+
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
+import { getAuth } from "@/lib/auth";
 
-const SESSION_COOKIE_NAMES = [
-  "better-auth.session_token",
-  "__Secure-better-auth.session_token",
-  "better-auth.session-token",
-  "__Secure-better-auth.session-token",
-];
+export async function proxy(request) {
+  const auth = getAuth();
 
-export function proxy(request) {
-  const isLoggedIn = SESSION_COOKIE_NAMES.some((cookieName) =>
-    Boolean(request.cookies.get(cookieName)?.value)
-  );
+  let session = null;
+  try {
+    session = await auth.api.getSession({
+      headers: await headers(),
+    });
+  } catch {
+    try {
+      session = await auth.api.getSession({
+        headers: request.headers,
+      });
+    } catch {
+      session = null;
+    }
+  }
 
-  if (isLoggedIn) {
+  if (session) {
     return NextResponse.next();
   }
 
@@ -22,5 +31,9 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/CourseDetails/:path*"],
+  matcher: [
+    "/Profile",
+    "/Profile/:path*",
+    "/CourseDetails/:path*",
+  ],
 };

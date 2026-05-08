@@ -1,35 +1,49 @@
 "use client";
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { FcGoogle } from 'react-icons/fc';
-import { authClient } from '@/lib/auth-client';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { toast } from "sonner";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+
 const Login = () => {
-const { register, handleSubmit } = useForm();
-const router = useRouter();
-      const onSubmit = async (formData) => {
+  const { register, handleSubmit } = useForm();
+  const router = useRouter();
+
+  const onSubmit = async (formData) => {
+    try {
       const { error } = await authClient.signIn.email({
-        email: formData.email, // required
-        password: formData.password, // required
+        email: formData.email,
+        password: formData.password,
         callbackURL: "/",
       });
-      
-    if (error) {
-      alert(error.message || "Login failed");
-    } else {
-      router.push("/");
-    }
-    };
 
-    const handleGoogleSignIn = async () => {
+      if (error) {
+        toast.error(error.message || "Login failed");
+        return;
+      }
+      toast.success("Logged in successfully");
+      router.push("/");
+      router.refresh();
+    } catch (e) {
+      toast.error(e?.message || "Something went wrong. Try again.");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
       const { error } = await authClient.signIn.social({
         provider: "google",
         callbackURL: "/",
       });
       if (error) {
-        alert(error.message || "Google login failed");
+        toast.error(error.message || "Google login failed");
       }
-    };
+      // Success: browser redirects to Google / callback — no toast needed here
+    } catch (e) {
+      toast.error(e?.message || "Google login failed");
+    }
+  };
 
     return (
          <div className="flex justify-center items-center min-h-screen bg-gray-50">

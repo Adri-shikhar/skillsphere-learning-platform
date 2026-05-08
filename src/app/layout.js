@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Footer from "./Components/Footer/Footer";
+import AppToaster from "./Components/AppToaster/AppToaster";
 
 export const metadata = {
   title: "Skillsphere | Learn Anything",
@@ -11,10 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en" data-theme="light"
-      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
+      lang="en"
+      data-theme="light"
+      data-scroll-behavior="smooth"
+      className={` h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <AppToaster />
         {children}
         <Footer />
       </body>
