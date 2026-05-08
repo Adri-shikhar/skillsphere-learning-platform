@@ -9,11 +9,14 @@ const router = useRouter();
 
 
     const onSubmit =async (formData) => {
-      const{error} = await authClient.signUp.email({
+      const { error } = await authClient.signUp.email({
         email: formData.email,
         password: formData.password,
         name: formData.name,
-        picture: formData.picture,
+        // Better Auth expects `image`, not `picture` (OAuth maps picture → image).
+        ...(formData.picture?.trim()
+          ? { image: formData.picture.trim() }
+          : {}),
       });
       if (error) {
         alert(error.message || "Registration failed");

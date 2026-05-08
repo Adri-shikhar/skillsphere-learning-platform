@@ -1,9 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import Navbar from "./Components/Navbar/Navbar";
-import Marquee from "./Components/MarqueeData/MarqueeData";
-import MarqueeData from "./Components/MarqueeData/MarqueeData";
+import Footer from "./Components/Footer/Footer";
 
 export const metadata = {
   title: "Skillsphere | Learn Anything",
@@ -16,9 +14,10 @@ export default function RootLayout({ children }) {
       lang="en" data-theme="light"
       className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">      
+      <body className="min-h-full flex flex-col">
         {children}
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }
