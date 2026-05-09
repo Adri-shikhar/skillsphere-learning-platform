@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -7,7 +7,7 @@ import Mylink from "./Mylink";
 import { MdSchool, MdMenu } from "react-icons/md";
 
 import { toast } from "sonner";
-import { signOut, useSession } from '@/lib/auth-client';
+import { signOut, useSession } from "@/lib/auth-client";
 
 const Navbar = () => {
   const router = useRouter();
@@ -30,9 +30,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 shadow-sm backdrop-blur-md">
+    <header className="app-navbar sticky top-0 z-50 border-b border-gray-100 bg-white/90 shadow-sm backdrop-blur-md">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-xl bg-purple-600 flex items-center justify-center shadow-md group-hover:bg-purple-700 transition-colors">
@@ -54,15 +53,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-3">
           {session?.user ? (
             <>
-           
-            <button
-              type="button"
-              onClick={handleLogout}
-              disabled={isLoggingOut}
-              className="px-4 py-2 text-sm font-semibold text-white bg-red-600 border-2 border-red-600 rounded-lg hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
-            >
-              {isLoggingOut ? "Logging out..." : "Logout"}
-            </button> 
+              <button
+                type="button"
+                onClick={handleLogout}
+                disabled={isLoggingOut}
+                className="px-4 py-2 text-sm font-semibold text-white bg-red-600 border-2 border-red-600 rounded-lg hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+              >
+                {isLoggingOut ? "Logging out..." : "Logout"}
+              </button>
             </>
           ) : (
             <>
@@ -80,7 +78,6 @@ const Navbar = () => {
               </Link>
             </>
           )}
-
         </div>
 
         {/* Mobile hamburger */}
@@ -89,16 +86,28 @@ const Navbar = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <MdMenu className="text-2xl text-gray-700" />
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/Courses">Courses</Link></li>
-              <li><Link href="/Wishlist">Wishlist</Link></li>
-              <li><Link href="/Login">Login</Link></li>
-              <li><Link href="/Registration">Register</Link></li>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-white rounded-box w-52"
+            >
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/Courses">Courses</Link>
+              </li>
+              <li>
+                <Link href="/Wishlist">Wishlist</Link>
+              </li>
+              <li>
+                <Link href="/Login">Login</Link>
+              </li>
+              <li>
+                <Link href="/Registration">Register</Link>
+              </li>
             </ul>
           </div>
         </div>
-
       </div>
     </header>
   );

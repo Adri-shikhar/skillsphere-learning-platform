@@ -1,16 +1,52 @@
-export default function Loading() {
+"use client";
+
+import { motion } from "motion/react";
+
+const dotVariants = {
+  pulse: (delay = 0) => ({
+    scale: [1, 1.5, 1],
+    transition: {
+      duration: 1.2,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay,
+    },
+  }),
+};
+
+function Loading() {
   return (
-    <div
-      className="flex min-h-[60vh] w-full flex-col items-center justify-center gap-4 bg-gray-50 px-4 py-16"
-      aria-busy="true"
-      aria-live="polite"
-    >
-      <div
-        className="h-12 w-12 animate-spin rounded-full border-4 border-purple-200 border-t-purple-600"
-        role="status"
-        aria-label="Loading page"
-      />
-      <p className="text-sm font-medium text-gray-600">Loading…</p>
+    <div className="container">
+      <motion.div className="dot" variants={dotVariants} animate="pulse" custom={0} />
+      <motion.div className="dot" variants={dotVariants} animate="pulse" custom={0.2} />
+      <motion.div className="dot" variants={dotVariants} animate="pulse" custom={0.4} />
+      <StyleSheet />
     </div>
   );
 }
+
+function StyleSheet() {
+  return (
+    <style>
+      {`
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 40vh;
+        gap: 20px;
+      }
+
+      .dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        will-change: transform;
+      }
+      `}
+    </style>
+  );
+}
+
+export default Loading;
