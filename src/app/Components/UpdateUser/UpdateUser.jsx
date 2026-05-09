@@ -11,16 +11,29 @@ import {
   TextField,
   useOverlayState,
 } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export function UpdateUser() {
   const ModalState = useOverlayState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const name = form.elements.namedItem("name")?.value;
-    const email = form.elements.namedItem("email")?.value;
-    console.log(name, email);
+    const link = form.elements.namedItem("link")?.value;
+    console.log(name, link);
+
+
+    const { error } = await authClient.updateUser({
+    image: link,
+    name: name,
+})
+if (error) {
+    toast.error(error.message || "Failed to update user");
+    return;
+}
+toast.success("User updated successfully");
     ModalState.close();
     form.reset();
   };
@@ -53,9 +66,9 @@ export function UpdateUser() {
                     <Label>Name</Label>
                     <Input placeholder="Enter your name" />
                   </TextField>
-                  <TextField className="w-full" name="email" isRequired>
-                    <Label>Email</Label>
-                    <Input placeholder="Enter your email" type="email" />
+                  <TextField className="w-full" name="link" isRequired>
+                    <Label>Profile Picture URL</Label>
+                    <Input placeholder="Enter your URL for profile picture" type="link" />
                   </TextField>
                   <Modal.Footer className="mt-4">
                     <div className="flex justify-end gap-2">

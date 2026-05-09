@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
@@ -8,6 +9,20 @@ import { useRouter } from "next/navigation";
 const Registration = () => {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
+
+  const handleGoogleSignUp = async () => {
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+      if (error) {
+        toast.error(error.message || "Google sign-up failed");
+      }
+    } catch (e) {
+      toast.error(e?.message || "Google sign-up failed");
+    }
+  };
 
   const onSubmit = async (formData) => {
     try {
@@ -81,6 +96,15 @@ const Registration = () => {
             className="w-full bg-purple-600 text-white py-2 rounded font-semibold hover:bg-purple-700 transition-colors"
           >
             Register
+          </button>
+          <p className="text-center text-xs text-gray-400">or</p>
+          <button
+            type="button"
+            onClick={handleGoogleSignUp}
+            className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded font-semibold hover:bg-gray-50 transition-colors"
+          >
+            <FcGoogle className="text-xl" />
+            Sign up with Google
           </button>
           <p className="text-center text-sm mt-2">
             Already have an account?{" "}
