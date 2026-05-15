@@ -8,7 +8,7 @@ import { MdAccessTime, MdSchool, MdStar, MdSearch } from "react-icons/md";
 function doesCourseMatchSearch(course, searchText) {
   const query = searchText.trim().toLowerCase();
   if (query === "") {
-    return true; // empty search = show every course
+    return true;
   }
 
 
@@ -136,7 +136,7 @@ export default function CoursesCatalog({ courses }) {
           Showing {filteredCourses.length} of {allCourses.length} courses
         </p>
       </div>
-
+      
       {filteredCourses.length === 0 ? (
         <p className="rounded-2xl border border-gray-200 bg-white px-6 py-12 text-center text-gray-600">
           No courses match your search. Try different keywords.
